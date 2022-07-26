@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do v1 | V + htmx</title>
+    <script src="js/htmx.min.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>To Do</h1>
+    </header>
+    <main>
+      @content_list
+      <section id="new-item-panel">
+        <input type="text" name="new-item" id="new-item" placeholder="Add item" />
+        <button
+          hx-post="/additem"
+          hx-target="#main-list"
+          hx-swap="outerHTML"
+          hx-trigger="click"
+          hx-include="#new-item"
+        >
+          Add
+        </button>
+      </section>
+    </main>
+    <footer>&copy; @year Subhomoy Haldar</footer>
+  </body>
+</html>
