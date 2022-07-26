@@ -7,3 +7,6 @@ todolist
 *.dylib
 *.dll
 vls.log
+
+# Keep user data out of repository
+data
