@@ -7,6 +7,8 @@ import strings
 import time
 import vweb
 
+const port = ((os.getenv_opt('PORT') or { '8080' }).int())
+
 struct Item {
 	id      string
 	details string
@@ -41,7 +43,7 @@ fn main() {
 
 	app.serve_static('/items.csv', 'data/items.csv')
 
-	vweb.run(app, 8080)
+	vweb.run(app, port)
 }
 
 fn (mut app App) get_content() string {
